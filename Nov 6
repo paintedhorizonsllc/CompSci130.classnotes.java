@@ -1,0 +1,117 @@
+package Lesson;
+import java.util.Scanner;
+
+public class NOV6 {//start of cass
+
+	//Section 2 : global variables declarations
+	static Scanner input = new Scanner(System.in);
+	
+	//Section 3:
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	//write a main method that invokes the printGrade method to display the grades 
+
+	printGrade(86);
+	printGrade(66);
+	printGrade(75);
+	//write a main method that prompts the user to enter a string and displays the number of letter in the string
+	String userInput;
+	//read a string from the user
+	System.out.print("Enter a string and I'll count # letters in that string: ");;
+	String userInput1 = input.nextLine();
+
+	int numOfLetters = countLetters(userInput1);
+	System.out.printf("You have %d in %s", numOfLetters, userInput1);
+	
+	
+		
+	}//end main
+
+	//Section 4: code for the other methods (User-Defined Methods
+	public static void printGrade(int score)
+	{//start method
+		if (score >= 90)
+		{
+			System.out.printf("The grade for the score %d is A.\n", score);	
+		}
+		else if ( score >= 80 && score <=89) 
+		{
+			System.out.printf("The grade for the score %d is B.\n", score);	
+		}
+		else if ( score >= 70 && score <=79) 
+		{
+			System.out.printf("The grade for the score %d is C.\n", score);	
+		}
+		else if (score < 69)
+		{
+			System.out.printf("The grade for the score %d is D.\n", score);	
+		}
+		
+	}//end method	
+		
+		
+		
+		
+
+		
+	
+	//program exercise 3 : Slddoe 19
+	
+		public static int countLetters(String s)
+		{//start method
+			int count = 0; //hold the wanted result: number of letters in the taken (inputedstring), this will be the returned value
+			for (int index = 0; index <= s .length() - 1; index++)
+			{
+				//get a copy of the char at the current index by using the methd charAt
+				char copy = s.charAt(index);
+				//test to see if the retrieved copy is a letter or not
+				if (Character.isLetter(copy) ==true)
+				{
+					count++;
+				}
+				
+			}//end for statement
+			return count;
+			
+
+	
+		}//end method
+		//write a method that takes an integer and then if this integer is a positve,it will return the square root of it multiplied by 5
+	
+		//convert the above as a non-void: it returns the grded letter
+		
+		public static char printGradeV2(int score)
+		{//start method
+			if (score >= 90)
+			{
+				return 'A';	
+			}
+			else if ( score >= 80 && score <=89) 
+			{
+				return 'B';	
+			}
+			else if ( score >= 70 && score <=79) 
+			{
+				return 'C';	
+			}
+			else 
+			{
+				return 'D';	
+			}
+		
+		}//end method	
+		// method 3:
+		// write a method that takes an integer and then if this integer is a positive,
+		// it will return the square root of it, multiplied by 5
+		// otherwise, the method returns 0
+		public static double methodA(int x) { // we have error if just return, answer to fix: we do not have answer for the
+												// else
+			if (x > 0) {
+				return 5 * Math.sqrt(x);
+			} else {
+				return 0;
+			}
+
+		}// end of third method
+	
+}//end class
