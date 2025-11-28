@@ -1,0 +1,715 @@
+package ArrayPackage;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class metLib {
+	static Scanner input = new Scanner(System.in);
+	
+	public static void displayArray(int [] takenArray) {
+		for (int index = 0; index < takenArray.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%d\t", takenArray[index]);
+			
+		}
+		System.out.println();
+		
+		}
+		
+		//Do overloading for the method displayArray
+		
+		public static void displayArray(double [] takenArray) {
+		for (int index = 0; index < takenArray.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%.2f\t", takenArray[index]);
+			
+		}
+		System.out.println();
+		
+		}
+		public static void displayArray(char [] takenArray) {
+			for (int index = 0; index < takenArray.length; index++)
+			{
+				//at each index, display the value that is stored at the index
+				System.out.printf("%c\t", takenArray[index]);
+				
+			}
+			System.out.println();
+			
+			}
+		public static void displayArray(String [] takenArray) {
+			for (int index = 0; index < takenArray.length; index++)
+			{
+				//at each index, display the value that is stored at the index
+				System.out.printf("%s\t", takenArray[index]);
+				
+			}
+			System.out.println();
+			
+			}
+		//write a void method named addTOArray that takes an integer array and then it will add 10 to every element of that taken array
+		//apply the overloading so addTo Array works with the double arrays
+		public static void add10TOArray (int [] takenArray) {
+		
+			for (int index = 0; index < takenArray.length; index++) //adding 10 - int
+			{
+				//at each index, add 10 to display the value that is stored at the index
+			
+				takenArray [index] += 10;
+			}
+		}
+		public static void add10TOArray (double [] takenArray) {//adding 10 - double
+			
+			for (int index = 0; index < takenArray.length; index++)
+			{
+				//at each index, add 10 to display the value that is stored at the index
+			
+				takenArray [index] += 10;
+				System.out.printf("%.2f\t", takenArray[index]);
+			}	
+		}
+								//Load Array Method - main does nothing 
+		//write a void method named loadArray that takes an array of integers as a parameter,
+		//and then it will prompt the user to insert values and it will store these values into that taken array
+		//Goal: Read a set of values and store them in the takenArray
+		public static void loadArray(int [] takenArray)
+		{
+			for(int index = 0; index < takenArray.length; index++)
+			{
+				System.out.print("Enter an integer value: ");
+				takenArray [index] = input.nextInt();//first it will take from value and will add into the takenArray
+			}
+		}
+	//overloading
+		public static void loadArray(double[] takenArray)
+		{
+			for(int index = 0; index < takenArray.length; index++)
+			{
+				System.out.print("Enter an integer value: ");
+				takenArray [index] = input.nextDouble();
+			}
+		}
+		public static void loadArray(char [] takenArray)
+		{
+			for(int index = 0; index < takenArray.length; index++)
+			{
+				System.out.print("Enter an integer value: ");
+				takenArray [index] = input.next().charAt(0);
+			}
+		}
+		public static void loadArray(String [] takenArray)
+		{
+			for(int index = 0; index < takenArray.length; index++)
+			{
+				System.out.print("Enter an integer value: ");
+				takenArray [index] = input.next();
+			}
+		}
+	//method to display a 2D array as a parameter and it will display the content of that taken array
+	public static void display2DArray (int [][] takenArray) {
+		for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray[i].length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+			{
+		    // access each element using two indexes 
+			  System.out.printf("%d\t", takenArray[i][j]);
+			  
+		  }//end of inner
+		  System.out.println();
+		  
+		}// end of outer
+	
+	}
+	
+	public static void display2DArray (double [][] takenArray) {
+		for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray.length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+		  {
+		    // access each element using two indexes 
+			  System.out.printf("%.2f\t", takenArray[i][j]);
+			  
+		  }//end of inner
+		  System.out.println();
+		  
+		}// end of outer
+	
+	}
+	
+	public static void display2DArray (char [][] takenArray) {
+	for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray.length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+		  {
+		    // access each element using two indexes 
+			  System.out.printf("%c\t", takenArray[i][j]);
+			  
+		  }//end of inner
+		  System.out.println();
+		  
+		}// end of outer
+	
+	}
+	public static void display2DArray (String [][] takenArray) {
+		for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray.length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+		  {
+		    // access each element using two indexes 
+			  System.out.printf("%s\t", takenArray[i][j]);
+			  
+		  }//end of inner
+		  System.out.println();
+		  
+		}// end of outer
+	
+	}
+	
+	//a method named load2DArray that takes a 2 d integer array as a parameter and prompts the user to enter integer values to store them in that taken array
+	public static void load2DArray (int[] [] takenArray)	{	
+		for (int i= 0;i < takenArray.length; i++){//outer loop for rows: to visit each row in array
+			System.out.printf("Please enter the values for the first row for the row %d: \n", i);
+			for (int j = 0; j < takenArray[i].length; j++)//inner loop for the cols: visit each element in the row we are visiting now
+		  {
+				 // access each element using two indexes 
+				takenArray[i][j] = input.nextInt();
+			}//end of inner
+			System.out.println(); 
+		}
+		System.out.printf("%d values have been stored successfully!\n", takenArray.length * takenArray [0].length);
+	}
+	
+	public static void load2DArray (double[] [] takenArray)	{	
+		for (int i= 0;i < takenArray.length; i++){//outer loop for rows: to visit each row in array
+			System.out.printf("Please enter the values for the first row for the row %d: \n", i);
+			for (int j = 0; j < takenArray[i].length; j++)//inner loop for the cols: visit each element in the row we are visiting now
+		  {
+				 // access each element using two indexes 
+				takenArray[i][j] = input.nextDouble();
+			}//end of inner
+			System.out.println(); 
+		}
+		System.out.printf("%.2f values have been stored successfully!\n", takenArray.length * takenArray [0].length);
+	}
+	public static void load2DArray (char[] [] takenArray)	{	
+		for (int i= 0;i < takenArray.length; i++){//outer loop for rows: to visit each row in array
+			System.out.printf("Please enter the values for the first row for the row %d: \n", i);
+			for (int j = 0; j < takenArray[i].length; j++)//inner loop for the cols: visit each element in the row we are visiting now
+		  {
+				 // access each element using two indexes 
+				takenArray[i][j] = input.next().charAt(0);
+			}//end of inner
+			System.out.println(); 
+		}
+		System.out.printf("%d values have been stored successfully!\n", takenArray.length * takenArray [0].length);
+	}
+	public static void load2DArray (String[] [] takenArray)	{	
+		for (int i= 0;i < takenArray.length; i++){//outer loop for rows: to visit each row in array
+			System.out.printf("Please enter the values for the first row for the row %d: \n", i);
+			for (int j = 0; j < takenArray[i].length; j++)//inner loop for the cols: visit each element in the row we are visiting now
+		  {
+				 // access each element using two indexes 
+				takenArray[i][j] = input.next();
+			}//end of inner
+			System.out.println(); 
+		}
+		System.out.printf("%d values have been stored successfully!\n", takenArray.length * takenArray [0].length);
+	}
+	
+	//write a void method named calcStats that takes a 2D integer array and then displays:
+	//total, product, and the average of all elements in that taken array
+	
+	public static void calcStat(int [] [] takenArray){
+		int total = 0, product = 1;
+		
+		for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray[i].length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+			{
+		    // access each element using two indexes 
+			  System.out.printf("%d\t", takenArray[i][j]);
+				
+			  //check what this does: 
+			  product+=takenArray[i][j];
+			  total+=takenArray[i][j];
+			}//end of inner
+			System.out.println(); 
+		  
+			}//end of inner
+		 System.out.printf("Total = %d\n", total);
+		 System.out.printf("Product = %d\n", product);
+		 System.out.printf("Average = %.2f", (double) total / (takenArray.length * takenArray [0].length));
+	  
+	}
+	
+		
+	public static void calcStat(double [] [] takenArray){
+		double total = 0, product = 1;
+		
+		for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray.length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+			{
+		    // access each element using two indexes 
+			  System.out.printf("%d\t", takenArray[i][j]);
+				
+			  //check what this does: 
+			  product+=takenArray[i][j];
+			  total+=takenArray[i][j];
+			}//end of inner
+			System.out.println(); 
+		  
+			}//end of inner
+		 System.out.printf("Total = %.2f\n", total);
+		 System.out.printf("Product = %.2f\n", product);
+		 System.out.printf("Average = %.2f", (double) total / (takenArray.length * takenArray [0].length));
+	  
+	}
+	
+	public static void calcStat(char [] [] takenArray){
+		int total = 0, product = 1;
+		
+		for (int i= 0;i < takenArray.length; i++)//outer loop for rows: to visit each row in array
+		{
+		  for (int j = 0; j < takenArray.length; j++)//ineer loop for the cols: visit each element in the row we are visiting now
+			{
+		    // access each element using two indexes 
+			  System.out.printf("%d\t", takenArray[i][j]);
+				
+			  //check what this does: 
+			  product+=takenArray[i][j];
+			  total+=takenArray[i][j];
+			}//end of inner
+			System.out.println(); 
+		  
+			}//end of inner
+		 System.out.printf("Total = %c\n", total);
+		 System.out.printf("Product = %c\n", product);
+		 System.out.printf("Average = %.2f", (double) total / (takenArray.length * takenArray [0].length));
+	  
+	}
+
+	
+	public static void displayMenu()
+	{
+		System.out.println("\n =====COMP SCi 130 Menu");
+		System.out.println("1- Add a single student");
+		System.out.println("2- Add multiple students (complete roster)");
+		System.out.println("3- Display all students");
+		System.out.println("4- Find a student by name");
+		System.out.println("5- Display the students with the highest GPA and lowest GPA");
+		System.out.println("6- Count the number of students with an age above a given threshold");
+		System.out.println("7 - Exit");
+	
+	}//end displayMenu
+	
+	//add a method that performs the option fr a single student
+	//this method takes from the main method the following: the 3 Arrays( names, ages, gpas
+	//then it will read the student's name age gpa from the user
+	//finally it will add the inputed student to the end of the current students list
+
+	public static void addSingleStudent( String[] names, int[] ages, double [] gpas, int studentCount)
+	{
+		System.out.println("Adding a single student...");
+		String inputedName;  int inputedAge; double inputedGPA;
+		System.out.print("Enter First Name: ");
+		inputedName=input.next();
+		System.out.print("Enter Age: ");
+		inputedAge=input.nextInt();
+		System.out.print("Enter GPA: ");
+		inputedGPA = input.nextDouble();
+		
+		//add the inputed info @ index = studentCount
+		
+		names[studentCount] = inputedName; ages[studentCount]= inputedAge; gpas[studentCount] = inputedGPA;
+		System.out.printf("Student %s added successfully. \n",  inputedName);
+		
+		
+	}//end of addSingleStudent
+	
+	
+	//a method that performs the options Display all students
+	//this method takes from main methods
+	public static void DisplayAllStudents (String[] names, int[] ages, double [] gpas, int studentCount)
+	{//start DisplayAllStudents
+		
+		System.out.println("Displaying all students: ");
+		System.out.printf("%10s%25s%15s\n", "Name", "Age", "GPA");
+		System.out.printf("%10s%25s%15s\n", "----", "---", "---");
+		
+		for ( int index = 0; index < studentCount; index++)
+		{//start for
+			System.out.printf("%10s%25d%15.2f\n", names[index], ages[index], gpas[index]);
+		}//end for
+		
+	
+		
+	}//end DisplayAllStudents
+	
+	public static int AddMultipleStudents (String[] names, int[] ages, double [] gpas, int studentCount)
+	{
+		System.out.println("Adding multpile students...");
+		System.out.println("Enter the complete roster: ");
+		
+		//we should remove all current students from the list 
+		
+		studentCount=0;
+		//we will keep reading from the user until we find the keyword Stop
+		
+		String inputedName;  int inputedAge; double inputedGPA;
+		inputedName= input.next();
+		while( ! inputedName.equals("stop"))
+				{
+			inputedAge = input.nextInt();
+			inputedGPA = input.nextDouble();
+			
+			names[studentCount] = inputedName; ages[studentCount]= inputedAge; gpas[studentCount] = inputedGPA;
+			
+			//read the next student
+			inputedName= input.next();
+			studentCount++;
+				}//end while
+		System.out.printf("%d students added to the roster. \n", studentCount);
+		
+		return studentCount;
+	
+	}//endAddMultipleStudents
+	//add a method that finds a student by name: it will apply LinearSearch algorith
+	//it takes from the main and then it will read the student name that we would like to see if in our system or not
+	
+	public static void FindStudentByName(String[] names, int[] ages, double [] gpas, int studentCount)
+	{
+		String keyName;
+		System.out.print("Enter the name of the student to find: ");
+		keyName = input.next();
+		boolean isFound = false;
+		for( int index = 0; index < studentCount; index++)
+		{
+			if (names[index].equals(keyName) == true)
+			{
+				System.out.println("Student found");
+				System.out.printf("Name: %s\n",  names[index]);
+				System.out.printf("Age: %s\n",  ages[index]);
+				System.out.printf("GPA: %s\n",  gpas[index]);
+				//no need to continue to search if we have a match
+				break;
+					
+			}//end if
+			
+		}//end for
+		if (isFound ==false)
+{
+	System.out.printf("Student %s not found in the roster.\n",  keyName);
+}
+		
+	}//End FindStudentByName method
+	//Write a recursive methods that returns base to power exponent
+	public static int Power( int base, int exponent)
+	{
+		if ( exponent == 0 )
+		{
+			return 1;
+		}
+		else
+		{
+			return base * Power (base, exponent -1);
+		}
+		
+	}
+	// double ^ int
+	public static double Power(double base, int exponent) {
+	    if (exponent == 0) {
+	        return 1.0;
+	    } else if (exponent > 0) {
+	        return base * Power(base, exponent - 1);
+	    } else {
+	        // handle negative exponents: base^(-n) = 1 / base^n
+	        return 1.0 / Power(base, -exponent);
+	    }
+	}
+	// char ^ int  (uses ASCII/Unicode value of the char)
+	public static int Power(char base, int exponent) {
+	    int numericBase = (int) base;      // cast char to int
+	    return Power(numericBase, exponent); // reuse the int version
+	}
+	// String ^ int  (String contains a number, e.g. "5")
+	public static int Power(String base, int exponent) {
+	    int numericBase = Integer.parseInt(base); // convert String → int
+	    return Power(numericBase, exponent);      // reuse the int version
+	}
+
+		
+	//write a recursive method that takes a positive integer as a parameter and then it will compute the factorial of that taken integer
+	
+	public static int factorial (int n)
+	{//start method
+	
+	//stopping section : Base section: an if statement that stop the recursion, otherwise it will go forever.
+		if (n <= 1) 
+		{
+			return 1;
+		}	//Recursive Call Section
+			else 
+		{
+			return n * factorial ( n - 1 ); //recursive calling statement
+		}
+	}//end factorial method
+	
+	// factorial for double (expects whole-number values)
+	public static double factorial(double n) {
+	    if (n <= 1.0) {
+	        return 1.0;
+	    } else {
+	        return n * factorial(n - 1.0);
+	    }
+	}
+	// factorial for char (uses its numeric value)
+	public static int factorial(char c) {
+	    int numeric = (int) c;        // e.g. '5' → 53, 'A' → 65
+	    return factorial(numeric);    // call the int version
+	}
+	// factorial for String (String contains a number, e.g. "6")
+	public static int factorial(String s) {
+	    int n = Integer.parseInt(s);  // convert String → int
+	    return factorial(n);          // reuse the int version
+	}
+	//Section 4: code for the other methods (User-Defined Methods
+		public static void printGrade(int score)
+		{//start method
+			if (score >= 90)
+			{
+				System.out.printf("The grade for the score %d is A.\n", score);	
+			}
+			else if ( score >= 80 && score <=89) 
+			{
+				System.out.printf("The grade for the score %d is B.\n", score);	
+			}
+			else if ( score >= 70 && score <=79) 
+			{
+				System.out.printf("The grade for the score %d is C.\n", score);	
+			}
+			else if (score < 69)
+			{
+				System.out.printf("The grade for the score %d is D.\n", score);	
+			}
+			
+		}//end method	
+			
+			
+			
+			
+
+			
+		
+		//program exercise 3 : Slddoe 19
+		
+			public static int countLetters(String s)
+			{//start method
+				int count = 0; //hold the wanted result: number of letters in the taken (inputedstring), this will be the returned value
+				for (int index = 0; index <= s .length() - 1; index++)
+				{
+					//get a copy of the char at the current index by using the methd charAt
+					char copy = s.charAt(index);
+					//test to see if the retrieved copy is a letter or not
+					if (Character.isLetter(copy) ==true)
+					{
+						count++;
+					}
+					
+				}//end for statement
+				return count;
+			
+		
+			}//end method
+			//write a method that takes an integer and then if this integer is a positve,it will return the square root of it multiplied by 5
+		
+			//convert the above as a non-void: it returns the grded letter
+			
+			public static char printGradeV2(int score)
+			{//start method
+				if (score >= 90)
+				{
+					return 'A';	
+				}
+				else if ( score >= 80 && score <=89) 
+				{
+					return 'B';	
+				}
+				else if ( score >= 70 && score <=79) 
+				{
+					return 'C';	
+				}
+				else 
+				{
+					return 'D';	
+				}
+			
+			}//end method	
+			// method 3:
+			// write a method that takes an integer and then if this integer is a positive,
+			// it will return the square root of it, multiplied by 5
+			// otherwise, the method returns 0
+			public static double methodA(int x) { // we have error if just return, answer to fix: we do not have answer for the
+													// else
+				if (x > 0) {
+					return 5 * Math.sqrt(x);
+				} else {
+					return 0;
+				}
+
+			}// end of third method
+
+
+			/* Nov 11 Purpose: Shows the list of banking options to the user (Deposit, Withdraw, Check Balance, Exit).
+			Details:
+			Prints the menu text each time before asking for the user’s choice.
+			Does not take or return any value.
+			Example Call: displayMenu();
+			 */	
+			
+			public static void displayMenu2()
+			{//start of method
+				System.out.println("====Green Bay Menu=====");
+				System.out.println("D: Deposit Money");
+				System.out.println("W: Withdraw Money");
+				System.out.println("C: Check Balance");
+				System.out.println("S: Show Rate of Change");
+				System.out.println("E: Exit");	
+				
+			}//end method
+			
+			/*Purpose: Allows the user to deposit money into their account.
+			Details:
+				Prompts the user for the amount to deposit.
+				Adds the amount to the current balance if it’s positive.
+				Displays the new balance.
+				Returns the updated balance.
+				Example Call: balance = deposit(balance);
+			*/
+			
+			public static double deposit(double balance)
+			{//start method
+				//the method takes the current balance as input
+				double amountToDeposit; //a user input
+				System.out.print("Enter amount to deposit: ");
+				amountToDeposit = input.nextDouble();
+				
+				//Adds the amount to the current balance if it's positive.
+				if(amountToDeposit >= 0)
+				{
+					balance += amountToDeposit;
+					//Displays the new balance
+					System.out.printf("Deposit successful! New balance: $%.2f\n", balance);
+				}
+				else //invalid amountToDeposit
+				{
+					System.out.printf("Deposit cannot be preformed: %.2f is an invalid amount to deposit!!\n", amountToDeposit);
+				}
+				
+				//Returns the updated balance
+				return balance;
+					
+			}//end method
+			
+			/*Purpose: Allows the user to withdraw money from their account.
+			Details:
+			• Prompts the user for the amount to withdraw.
+			• Checks that the amount is positive and less than or equal to
+			the balance.
+			• Subtracts the amount from the balance if valid; otherwise,
+			shows an error message.
+			• Returns the updated balance.
+			Example Call: balance = withdraw(balance);
+			*/
+			 public static double withdraw(double balance)
+			 {//start method
+					//the method takes the current balance as input
+					double amountToWithdraw; //a user input
+					//Prompts the user for the amount to withdraw
+					System.out.print("Enter amount to withdraw: ");
+					amountToWithdraw = input.nextDouble();
+					
+					//Subtracts the amount from the current balance if it's positive.
+					if(amountToWithdraw >= 0 && amountToWithdraw <= balance) //valid amount to withdraw
+					{
+						balance -= amountToWithdraw;
+						//Displays the new balance
+						System.out.printf("Withdrawal successful! New balance: $%.2f\n", balance);
+					}
+					else //invalid amountToWithdraw
+					{
+						System.out.printf("Withdrawal cannot be preformed: %.2f is an invalid amount to withdraw!!\n", amountToWithdraw);
+					}
+					//Returns the updated balance
+					return balance;
+				  
+			 }//end method
+			
+			/*
+			 * Purpose: Displays the current account balance.
+			Details:
+			• Takes the current balance as input.
+			• Prints it in a readable, formatted way (e.g., $150.00).
+			• Does not change or return any values.
+			Example Call: checkBalance(balance);
+			 */
+			
+			 public static void checkBalance(double balance)
+			 {//start method
+			 System.out.printf("Your current balance is: $%.2f\n", balance);
+			
+			 }//end method
+			
+		/*
+		Purpose: Calculates and displays the rate of change in the account balance compared to the balance from the previous month.
+		Details:
+		Prompts the user to enter their last month’s balance.
+		Calculates the rate of change using the formula:
+		Rate of Change (%)=Current Balance−Last Month’s BalanceLast Month’s Balance×100
+		Displays whether the balance increased or decreased, and by what percentage.
+		If the last month’s balance entered is zero or negative, display an error message.
+		Returns nothing (void method).
+		Example Call: rateOfChange(balance);
+		*/
+		      public static void rateOfChange(double balance)
+		      {//start method
+		    	  double lastMonthBalance;
+		    	  
+		    	  //Prompts the user to enter their last month’s balance.
+		    	  System.out.println("Enter last month's balance: ");
+		    	  lastMonthBalance = input.nextDouble();
+		    	  
+		    	  //Calculates the rate of change using the formula:
+		    	if (lastMonthBalance >0) //valid input
+		    	{
+		    		 double rateOfChange = (balance - lastMonthBalance) / lastMonthBalance * 100;
+		    	  
+		    	  	if ( rateOfChange > 0 ) //increasing case
+		    	  	{
+		    	  		System.out.printf("Your balance increased by %.2f%% since last month.\n", rateOfChange);
+		    	  	}
+		    	  	else if (rateOfChange < 0 ) //decreasing case
+		    	  	{
+		    	  		System.out.printf("Your balance decreased by %.2f%% since last month.\n", Math.abs(rateOfChange ));
+		    	  	
+		    	  	}
+		    	  	else
+		    	  	{
+		    	  		System.out.printf("Your balance has no change since last month.\n", rateOfChange);
+		    	  	}
+		    	  	
+		      	}
+		    	else //invalid input
+		      	{
+		      		System.out.printf("You entered %.2f and this is an invalid acount balance.\n", lastMonthBalance);
+		      	}
+		    
+		    	  	
+		      }//end method
+			
+	
+		
+	
+	
+}//end class metLib 
