@@ -1,9 +1,10 @@
 package Assignment3;
 import java.util.Scanner;
 public class inventoryCommands{
+	
 	static String [ ] itemNames = new String[25]; 
 	static double [ ][ ] itemInfo = new double[25][5]; 
-
+	
 	static int itemCount = 0;
 	static Scanner input = new Scanner (System.in);
 
@@ -14,11 +15,11 @@ public class inventoryCommands{
         
       } // end of main
 
-//The Find function takes a name as the parameter. It determines 
-//whether an item with that name is in the itemNames list. If so, 
-//it returns the index of where the item is stored. If there is no // item in the list with that name, it returns -1.
-//params: (String) 
-//----------------------------------------------------------------- 
+	//The Find function takes a name as the parameter. It determines 
+	//whether an item with that name is in the itemNames list. If so, 
+	//it returns the index of where the item is stored. If there is no // item in the list with that name, it returns -1.
+	//params: (String) 
+	//----------------------------------------------------------------- 
 
 	public static int FindIndexOfItem(String lookUpItem)
 	{//start FinIndexOfItem method
@@ -58,6 +59,7 @@ public class inventoryCommands{
 					break;
 				default:
 					System.out.println("Bad command.");
+					input.nextLine(); 
 					break;
 			} // end switch
 			
@@ -82,62 +84,93 @@ public class inventoryCommands{
 	public static void ProcessAddCommand( )
 	{//start of ProcessAddComment method
 		String itemName;
-	double  pOrdered;
-	double manufPrice;
-	double sellingPrice;
+		double  pOrdered;
+		double manufPrice;
+		double sellingPrice;
 
-//System.out.print("\nEnter name of item to add: ");										//this is my testing to check my input - lra
-	itemName = input.next();
-	pOrdered = input.nextDouble();
-	manufPrice = input.nextDouble();
-	sellingPrice = input.nextDouble();
-	
-	int index = FindIndexOfItem(itemName);
-	if (index != -1) {
-		System.out.printf("\ncannot add, %s already in list!\n", itemName);
-		return;
+	//System.out.print("\nEnter name of item to add: ");										//this is my testing to check my input - lra
+		itemName = input.next();
+		pOrdered = input.nextDouble();
+		manufPrice = input.nextDouble();
+		sellingPrice = input.nextDouble();
 		
-	}
-	
-	int itemList = 0;
-	
-	while (itemList <itemNames.length && itemNames [itemList] != null) {
-		itemList++;
-	}
-	
-	if (itemList == itemNames.length) {
-		System.out.println("\nCannot add, the list is full.");
-		return;
-	}
-	itemNames [itemList] = itemName;
-	itemInfo[itemList][1] = pOrdered;
-	itemInfo[itemList][2] = manufPrice;	
-	itemInfo[itemList][3] = sellingPrice;
-	System.out.printf("\n%s has been added successfully!", itemName);
-		 
+		int index = FindIndexOfItem(itemName);
+		if (index != -1) {
+			System.out.printf("\ncannot add, %s already in list!\n", itemName);
+			return;
+			
+		}
+		
+		int itemList = 0;
+		
+		while (itemList <itemNames.length && itemNames [itemList] != null) {
+			itemList++;
+		}
+		
+		if (itemList == itemNames.length) {
+			System.out.println("\nCannot add, the list is full.");
+			return;
+		}
+		itemNames [itemList] = itemName;
+		itemInfo[itemList][1] = pOrdered;
+		itemInfo[itemList][2] = manufPrice;	
+		itemInfo[itemList][3] = sellingPrice;
+		System.out.printf("\n%s has been added successfully!", itemName);
 	}//end of ProcessAddComment method
 
-//The method processes output commands. The method reads in the
-//itemName and then output the item with that name. The method should 
-// display the item name along with the number of pieces ordered,
-//number of pieces currently in the store, number of pieces sold,
-//manufacturer’s price, and the store’s selling price for the item. 
-// If the item doesn't exist, the method should print an appropriate 
-// message.
-//params: (none) 
-//----------------------------------------------------------------- 
-public static ProcessOutputCommand( )
-{//start of ProcessOutputCommand method
-	
-}//end of ProcessOutputCommand method
+	//The method processes output commands. The method reads in the
+	//itemName and then output the item with that name. The method should 
+	// display the item name along with the number of pieces ordered,
+	//number of pieces currently in the store, number of pieces sold,
+	//manufacturer’s price, and the store’s selling price for the item. 
+	// If the item doesn't exist, the method should print an appropriate 
+	// message.
+	//params: (none) 
+	//----------------------------------------------------------------- 
+	public static void ProcessOutputCommand( )
+	{//start of ProcessOutputCommand method
+		{
+			  
+		    String itemName = input.next();
 
-//The method processes sell commands. The method reads in the
-//itemName and the number of pieces sold in this command (Transaction) 
-// If the item does exist in the list, the method updates the
-//appropriate counts of the sold item. If the item doesn't exist, the 
-// method should print an appropriate message.
-//params: (none) 
-//-----------------------------------------------------------------
+		
+		    int index = FindIndexOfItem(itemName);
+
+		 
+		    if (index == -1)
+		    {
+		    
+		        System.out.println(itemName + " is not in the list!");
+		    }
+		    else
+		    {
+		      
+		        System.out.println("Friendly Hardware Store, Green Bay, WI, 54311");
+		        System.out.println("itemName pOrdered pInStore pSold manufPrice sellingPrice");
+		        System.out.println("---------- -------- -------- ----- ---------- ------------");
+
+		       
+		        System.out.printf(
+		            "%-12s %.2f %.2f %.2f %.2f %.2f\n",
+		            itemNames[index],
+		            itemInfo[index][0],  // pOrdered
+		            itemInfo[index][1],  // pInStore
+		            itemInfo[index][2],  // pSold
+		            itemInfo[index][3],  // manufPrice
+		            itemInfo[index][4]   // sellingPrice
+		            		
+		        );
+		    }
+		}
+	}//end of ProcessOutputCommand method
+	
+	//The method processes sell commands. The method reads in the
+	//itemName and the number of pieces sold in this command (Transaction) 
+	// If the item does exist in the list, the method updates the
+	//appropriate counts of the sold item. If the item doesn't exist, the 
+	// method should print an appropriate message.
+	//params: (none) 
+	//-----------------------------------------------------------------
 
 	public static void ProcessSellCommand( )
 	{//start of ProcessSellCommand method
@@ -162,36 +195,44 @@ public static ProcessOutputCommand( )
 		
 	}//end of ProcessSellCommand method
 
-//The method processes display commands. The method should display a 
-// report of all items in the store and their information in a tabular 
-// format. Also, you should display the total inventory (the total
-//selling value of all of the items currently in the store) and the
-//total number of items (the sum of the number of pieces of all of the 
-// items in the store). For instance, total inventory equals the sum of 
-// (sellingPrice*pInStore) of all of the items currently in the store 
-// params: (none) 
-//----------------------------------------------------------------- 
-public static ProcessDisplayCommand( )
-{//start of ProcessDisplayCommand method
-	
-}//end of ProcessDisplayCommand method
+	//The method processes display commands. The method should display a 
+	// report of all items in the store and their information in a tabular 
+	// format. Also, you should display the total inventory (the total
+	//selling value of all of the items currently in the store) and the
+	//total number of items (the sum of the number of pieces of all of the 
+	// items in the store). For instance, total inventory equals the sum of 
+	// (sellingPrice*pInStore) of all of the items currently in the store 
+	// params: (none) 
+	//----------------------------------------------------------------- 
+	public static void ProcessDisplayCommand( )
+	{//start of ProcessDisplayCommand method
+		{
+			// 显示表头
+			System.out.println("Friendly Hardware Store, Green Bay, WI, 54311");
+			System.out.println("itemName  pOrdered  pInStore  pSold  manufPrice  sellingPrice");
+			System.out.println("--------  --------  --------  -----  ----------  ------------");
 
+			double totalInventory = 0;
+			double totalItems = 0;
 
+			for (int index = 0; index < itemCount; index++)
+			{
+				System.out.printf("%10s  %8.2f  %8.2f  %6.2f  %10.2f  %12.2f%n",
+						itemNames[index],
+						itemInfo[index][0],  
+						itemInfo[index][1],  
+						itemInfo[index][2], 
+						itemInfo[index][3],  
+						itemInfo[index][4]   
+						);
+
+				// 统计总数
+				totalInventory += itemInfo[index][4] * itemInfo[index][1];
+				totalItems += itemInfo[index][1];
+			}
+			System.out.printf("Total Inventory: $%.2f%n", totalInventory);
+			System.out.printf("Total number of items in the store: %.2f%n", totalItems);
+		}
+	}//end of ProcessDisplayCommand method
 }//end class 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-
-
-
-
